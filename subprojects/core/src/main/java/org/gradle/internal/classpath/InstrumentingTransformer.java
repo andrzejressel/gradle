@@ -58,7 +58,7 @@ import static org.objectweb.asm.Type.getMethodDescriptor;
 import static org.objectweb.asm.Type.getObjectType;
 import static org.objectweb.asm.Type.getType;
 
-class InstrumentingTransformer implements CachedClasspathTransformer.Transform {
+public class InstrumentingTransformer implements CachedClasspathTransformer.Transform {
 
     private final JvmBytecodeInterceptorSet externalInterceptors;
 
