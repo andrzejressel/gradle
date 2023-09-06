@@ -19,7 +19,7 @@ plugins {
     id("gradlebuild.distribution.api-java")
 }
 
-description = "Contains the JVM Test Suite plugin"
+description = "Contains foundational classes used by the JVM Test Suite plugin referenced by the java-base plugin"
 
 dependencies {
     implementation(project(":base-services"))
