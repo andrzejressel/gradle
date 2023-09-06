@@ -21,7 +21,7 @@ dependencies {
     implementation(project(":plugins")) {
         because("Needs access to StartScriptGenerator.")
     }
-    implementation(project(":plugins-java-base"))
+    implementation(project(":plugins-java"))
     implementation(project(":resources"))
     implementation(project(":workers"))
     implementation(project(":wrapper"))
@@ -57,7 +57,7 @@ dependencies {
     testFixturesImplementation(project(":core-api"))
     testFixturesImplementation(project(":logging"))
     testFixturesImplementation(project(":plugins"))
-    testFixturesImplementation(project(":plugins-java-base"))
+    testFixturesImplementation(project(":plugins-java"))
     testFixturesImplementation(project(":testing-base"))
     testFixturesImplementation(project(":plugins-jvm-test-suite"))
     testFixturesImplementation(project(":plugins-jvm-test-suite-base"))

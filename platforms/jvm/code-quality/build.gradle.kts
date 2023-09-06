@@ -30,7 +30,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":language-jvm"))
     implementation(project(":plugins-groovy"))
-    implementation(project(":plugins-java-base"))
+    implementation(project(":plugins-java"))
     implementation(project(":workers"))
     implementation(project(":reporting"))
     implementation(project(":platform-jvm"))

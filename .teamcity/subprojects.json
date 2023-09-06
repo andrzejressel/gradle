@@ -679,8 +679,8 @@
     "crossVersionTests": false
   },
   {
-    "name": "plugins-java-base",
-    "path": "platforms/jvm/plugins-java-base",
+    "name": "plugins-java",
+    "path": "platforms/jvm/plugins-java",
     "unitTests": true,
     "functionalTests": true,
     "crossVersionTests": false

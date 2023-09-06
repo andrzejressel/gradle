@@ -20,7 +20,7 @@ dependencies {
     implementation(project(":language-java"))
     implementation(project(":language-groovy"))
     implementation(project(":plugins-groovy"))
-    implementation(project(":plugins-java-base"))
+    implementation(project(":plugins-java"))
     implementation(project(":diagnostics"))
     implementation(project(":testing-base"))
     implementation(project(":testing-jvm"))
@@ -32,7 +32,7 @@ dependencies {
         because("We need it for BuildOutputCleanupRegistry")
     }
     implementation(project(":toolchains-jvm"))
-    implementation(project(":plugins-java-base"))
+    implementation(project(":plugins-java"))
     implementation(project(":plugins-jvm-test-suite"))
     implementation(project(":plugins-jvm-test-suite-base"))
 

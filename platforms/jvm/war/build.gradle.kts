@@ -33,7 +33,7 @@ dependencies {
     implementation(project(":platform-base"))
     implementation(project(":platform-jvm"))
     implementation(project(":plugins"))
-    implementation(project(":plugins-java-base"))
+    implementation(project(":plugins-java"))
     implementation(project(":plugins-jvm-test-suite-base"))
     implementation(project(":testing-base"))
 

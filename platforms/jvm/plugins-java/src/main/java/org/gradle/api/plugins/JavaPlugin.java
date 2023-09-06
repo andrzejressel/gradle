@@ -1,5 +1,5 @@
 /*
- * Copyright 2010 the original author or authors.
+ * Copyright 2023 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,8 +42,6 @@ import org.gradle.jvm.component.internal.JvmSoftwareComponentInternal;
 import org.gradle.testing.base.TestingExtension;
 
 import javax.inject.Inject;
-
-import static org.gradle.api.plugins.JvmTestSuitePlugin.DEFAULT_TEST_SUITE_NAME;
 
 /**
  * <p>A {@link Plugin} which compiles and tests Java source, and assembles it into a JAR file.</p>
@@ -289,7 +287,7 @@ public abstract class JavaPlugin implements Plugin<Project> {
 
     private static void configureBuiltInTest(Project project, JvmSoftwareComponentInternal component) {
         TestingExtension testing = project.getExtensions().getByType(TestingExtension.class);
-        final NamedDomainObjectProvider<JvmTestSuite> testSuite = testing.getSuites().register(DEFAULT_TEST_SUITE_NAME, JvmTestSuite.class, suite -> {
+        final NamedDomainObjectProvider<JvmTestSuite> testSuite = testing.getSuites().register(SourceSet.TEST_SOURCE_SET_NAME, JvmTestSuite.class, suite -> {
             final SourceSet testSourceSet = suite.getSources();
             ConfigurationContainer configurations = project.getConfigurations();
 

@@ -20,7 +20,7 @@ import org.gradle.integtests.fixtures.AbstractAutoTestedSamplesTest
 import org.junit.Test
 
 /**
- * Runs samples contained in class-level javadoc comments in the `plugins-java-base` project.
+ * Runs samples contained in class-level javadoc comments in the `plugins-java` project.
  */
 class AutoTestedSamplesJavaBaseIntegrationTest extends AbstractAutoTestedSamplesTest {
     @Test

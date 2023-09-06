@@ -166,7 +166,7 @@ platform("jvm") {
     subproject("toolchains-jvm")
     subproject("java-platform")
     subproject("plugins-groovy")
-    subproject("plugins-java-base")
+    subproject("plugins-java")
     subproject("plugins-jvm-test-suite")
     subproject("plugins-jvm-test-suite-base")
     subproject("war")

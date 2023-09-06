@@ -21,7 +21,7 @@ dependencies {
     implementation(project(":language-jvm"))
     implementation(project(":language-java"))
     implementation(project(":plugins"))
-    implementation(project(":plugins-java-base"))
+    implementation(project(":plugins-java"))
     implementation(project(":reporting"))
     implementation(project(":dependency-management"))
     implementation(project(":process-services"))
@@ -44,7 +44,7 @@ dependencies {
     testImplementation(libs.commonsIo)
     testImplementation(testFixtures(project(":core")))
     testImplementation(testFixtures(project(":plugins")))
-    testImplementation(testFixtures(project(":plugins-java-base")))
+    testImplementation(testFixtures(project(":plugins-java")))
     testImplementation(testFixtures(project(":language-jvm")))
     testImplementation(testFixtures(project(":language-java")))
 
