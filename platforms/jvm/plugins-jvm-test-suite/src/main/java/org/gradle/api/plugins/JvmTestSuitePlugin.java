@@ -35,7 +35,6 @@ import org.gradle.api.plugins.jvm.JvmTestSuite;
 import org.gradle.api.plugins.jvm.JvmTestSuiteTarget;
 import org.gradle.api.plugins.jvm.internal.DefaultJvmTestSuite;
 import org.gradle.api.plugins.jvm.internal.JvmTestSuitePluginHelper;
-import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.testing.AbstractTestTask;
 import org.gradle.api.tasks.testing.Test;
 import org.gradle.internal.deprecation.DeprecationLogger;
@@ -61,7 +60,7 @@ import java.util.Map;
  */
 @Incubating
 public abstract class JvmTestSuitePlugin implements Plugin<Project> {
-    public static final String DEFAULT_TEST_SUITE_NAME = SourceSet.TEST_SOURCE_SET_NAME;
+    public static final String DEFAULT_TEST_SUITE_NAME = JvmTestSuitePluginHelper.DEFAULT_TEST_SUITE_NAME;
     private static final String TEST_RESULTS_ELEMENTS_VARIANT_PREFIX = "testResultsElementsFor";
 
     private final Map<String, TestSuite> testTypesInUse = new HashMap<>(2); // Assume limited initial amount of test types/project, just unit and integration

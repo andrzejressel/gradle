@@ -31,6 +31,7 @@ import org.gradle.api.java.archives.internal.DefaultManifest;
 import org.gradle.api.jvm.ModularitySpec;
 import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.plugins.FeatureSpec;
+import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.plugins.JavaPluginExtension;
 import org.gradle.api.plugins.JavaResolutionConsistency;
 import org.gradle.api.plugins.jvm.internal.JvmTestSuitePluginHelper;
@@ -202,7 +203,7 @@ public class DefaultJavaPluginExtension implements JavaPluginExtension {
     public void withJavadocJar() {
         maybeEmitMissingJavaComponentDeprecation("withJavadocJar()");
 
-        if (project.getPlugins().hasPlugin("java")) { // TODO:JavaPlugin - replace with class after refactoring a plugins-java package?
+        if (project.getPlugins().hasPlugin(JavaPlugin.class)) {
             JavaPluginHelper.getJavaComponent(project).withJavadocJar();
         } else {
             SourceSet main = getSourceSets().getByName(SourceSet.MAIN_SOURCE_SET_NAME);
@@ -222,7 +223,7 @@ public class DefaultJavaPluginExtension implements JavaPluginExtension {
     public void withSourcesJar() {
         maybeEmitMissingJavaComponentDeprecation("withSourcesJar()");
 
-        if (project.getPlugins().hasPlugin("java")) { // TODO:JavaPlugin - replace with class after refactoring a plugins-java package?
+        if (project.getPlugins().hasPlugin(JavaPlugin.class)) {
             JavaPluginHelper.getJavaComponent(project).withSourcesJar();
         } else {
             SourceSet main = getSourceSets().getByName(SourceSet.MAIN_SOURCE_SET_NAME);
@@ -271,7 +272,7 @@ public class DefaultJavaPluginExtension implements JavaPluginExtension {
     }
 
     private void maybeEmitMissingJavaComponentDeprecation(String name) {
-        if (!project.getPlugins().hasPlugin("java")) { // TODO:JavaPlugin - replace with class after refactoring a plugins-java package?
+        if (!project.getPlugins().hasPlugin(JavaPlugin.class)) {
             DeprecationLogger.deprecateBehaviour(name + " was called without the presence of the java component.")
                 .withAdvice("Apply a JVM component plugin such as: java-library, application, groovy, or scala")
                 .willBeRemovedInGradle9()
@@ -293,7 +294,7 @@ public class DefaultJavaPluginExtension implements JavaPluginExtension {
             this.sourceSets = sourceSets;
             this.configurations = configurations;
 
-            if (project.getPlugins().hasPlugin("java")) { // TODO:JavaPlugin - replace with class after refactoring a plugins-java package?
+            if (project.getPlugins().hasPlugin(JavaPlugin.class)) {
                 JvmFeatureInternal mainFeature = JavaPluginHelper.getJavaComponent(project).getMainFeature();
                 JvmTestSuite defaultTestSuite = JvmTestSuitePluginHelper.getDefaultTestSuite(project);
 

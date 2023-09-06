@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 the original author or authors.
+ * Copyright 2021 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@
 package org.gradle.api.plugins.jvm.internal;
 
 import org.gradle.api.Buildable;
+import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.plugins.jvm.JvmTestSuiteTarget;
 import org.gradle.api.internal.tasks.TaskDependencyFactory;
 import org.gradle.api.tasks.TaskContainer;
 import org.gradle.api.tasks.TaskDependency;
 import org.gradle.api.tasks.TaskProvider;
 import org.gradle.api.tasks.testing.Test;
-import org.gradle.language.base.plugins.LifecycleBasePlugin;
 import org.gradle.util.internal.GUtil;
 
 import javax.inject.Inject;
@@ -40,7 +40,7 @@ public abstract class DefaultJvmTestSuiteTarget implements JvmTestSuiteTarget, B
         // Might not always want Test type here?
         this.testTask = tasks.register(name, Test.class, t -> {
             t.setDescription("Runs the " + GUtil.toWords(name) + " suite.");
-            t.setGroup(LifecycleBasePlugin.VERIFICATION_GROUP);
+            t.setGroup(JavaBasePlugin.VERIFICATION_GROUP);
         });
         this.taskDependencyFactory = taskDependencyFactory;
     }

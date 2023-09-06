@@ -19,7 +19,6 @@ package org.gradle.api.plugins.jvm.internal;
 import org.gradle.api.GradleException;
 import org.gradle.api.Project;
 import org.gradle.api.plugins.jvm.JvmTestSuite;
-import org.gradle.api.tasks.SourceSet;
 import org.gradle.testing.base.TestSuite;
 import org.gradle.testing.base.TestingExtension;
 
@@ -31,6 +30,8 @@ import org.gradle.testing.base.TestingExtension;
  */
 @SuppressWarnings("JavadocReference")
 public class JvmTestSuitePluginHelper {
+    public static final String DEFAULT_TEST_SUITE_NAME = "test";
+
     /**
      * Gets the default test suite. This method assumes the Java plugin is applied.
      *
@@ -44,7 +45,7 @@ public class JvmTestSuitePluginHelper {
             throw new GradleException(message);
         }
 
-        TestSuite defaultTestSuite = testing.getSuites().findByName(SourceSet.TEST_SOURCE_SET_NAME);
+        TestSuite defaultTestSuite = testing.getSuites().findByName(JvmTestSuitePluginHelper.DEFAULT_TEST_SUITE_NAME);
         if (!(defaultTestSuite instanceof JvmTestSuite)) {
             throw new GradleException(message);
         }

@@ -2,7 +2,7 @@ plugins {
     id("gradlebuild.distribution.api-java")
 }
 
-description = "Contains a basic JVM plugin used to compile, test, and assemble Java source; often applied by other JVM plugins (though named java-base, jvm-base would be a more proper name)."
+description = "Contains a basic JVM plugin used to compile, test, and assemble Java source; often applied by other JVM plugins (though named java-base, jvm-base would be a more proper name); and the Java plugin itself."
 
 dependencies {
     implementation(project(":base-services"))

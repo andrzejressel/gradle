@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 the original author or authors.
+ * Copyright 2009 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,19 +25,18 @@ import org.gradle.api.tasks.GroovySourceDirectorySet;
 import org.gradle.api.tasks.javadoc.Groovydoc;
 
 /**
- * <p>A {@link Plugin} which extends the {@link org.gradle.api.plugins.JavaPlugin} to provide support for compiling and documenting Groovy
+ * <p>A {@link Plugin} which extends the {@link JavaPlugin} to provide support for compiling and documenting Groovy
  * source files.</p>
  *
  * @see <a href="https://docs.gradle.org/current/userguide/groovy_plugin.html">Groovy plugin reference</a>
  */
-@SuppressWarnings("JavadocReference")
 public abstract class GroovyPlugin implements Plugin<Project> {
     public static final String GROOVYDOC_TASK_NAME = "groovydoc";
 
     @Override
     public void apply(Project project) {
         project.getPluginManager().apply(GroovyBasePlugin.class);
-        project.getPluginManager().apply("java"); // TODO:JavaPlugin replace with JavaPlugin once that is moved into a plugins-java and the dep cycle between plugins-groovy and plugins is broken
+        project.getPluginManager().apply(JavaPlugin.class);
         configureGroovydoc(project);
     }
 

@@ -21,6 +21,7 @@ import org.gradle.api.attributes.LibraryElements
 import org.gradle.api.attributes.Usage
 import org.gradle.api.attributes.java.TargetJvmEnvironment
 import org.gradle.api.plugins.JavaBasePlugin
+import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.ReportingBasePlugin
 import org.gradle.api.tasks.SourceSet
 import org.gradle.test.fixtures.AbstractProjectBuilderSpec
@@ -201,7 +202,7 @@ class CheckstylePluginTest extends AbstractProjectBuilderSpec {
     }
 
     def "can use legacy configFile extension property"() {
-        project.pluginManager.apply("java") // TODO:JavaPlugin - replace with class after refactoring a plugins-java package?
+        project.pluginManager.apply(JavaPlugin)
 
         ((CheckstyleExtension)project.checkstyle).with {
             configFile = project.file("checkstyle-config")

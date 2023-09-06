@@ -35,7 +35,7 @@ class GroovyPluginTest extends AbstractProjectBuilderSpec {
         groovyPlugin.apply(project)
 
         then:
-        project.plugins.hasPlugin("java") // TODO:JavaPlugin replace with JavaPlugin once that is moved into a plugins-java and the dep cycle between plugins-groovy and plugins is broken
+        project.plugins.hasPlugin(JavaPlugin.class);
     }
 
     def "adds groovy configuration to the project"() {
