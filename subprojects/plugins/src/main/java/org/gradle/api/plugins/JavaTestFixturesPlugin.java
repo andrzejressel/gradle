@@ -25,7 +25,6 @@ import org.gradle.api.plugins.internal.JavaConfigurationVariantMapping;
 import org.gradle.api.plugins.internal.JavaPluginHelper;
 import org.gradle.api.plugins.jvm.internal.DefaultJvmFeature;
 import org.gradle.api.plugins.jvm.internal.JvmFeatureInternal;
-import org.gradle.api.plugins.jvm.internal.JvmTestSuitePluginHelper;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.internal.component.external.model.ProjectDerivedCapability;
 import org.gradle.jvm.component.internal.DefaultJvmSoftwareComponent;
@@ -87,7 +86,7 @@ public abstract class JavaTestFixturesPlugin implements Plugin<Project> {
         feature.getApiConfiguration().getDependencies().add(dependencies.create(project));
 
         // The tests depend on the test fixtures.
-        SourceSet testSourceSet = JvmTestSuitePluginHelper.getDefaultTestSuite(project).getSources();
+        SourceSet testSourceSet = JavaPluginHelper.getDefaultTestSuite(project).getSources();
         Configuration testImplementation = project.getConfigurations().getByName(testSourceSet.getImplementationConfigurationName());
         testImplementation.getDependencies().add(dependencies.testFixtures(dependencies.create(project)));
 

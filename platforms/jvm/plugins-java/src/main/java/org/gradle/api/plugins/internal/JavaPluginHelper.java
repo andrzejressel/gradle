@@ -21,14 +21,19 @@ import org.gradle.api.Project;
 import org.gradle.api.component.SoftwareComponent;
 import org.gradle.api.internal.tasks.JvmConstants;
 import org.gradle.api.plugins.JavaPlugin;
+import org.gradle.api.plugins.jvm.JvmTestSuite;
 import org.gradle.jvm.component.internal.JvmSoftwareComponentInternal;
+import org.gradle.testing.base.TestSuite;
+import org.gradle.testing.base.TestingExtension;
 
 /**
  * Utility class intended for use only when the {@link JavaPlugin} is applied.
+ *
  * This class exists to avoid adding these methods to the {@code JavaPlugin} itself,
  * and thus avoids adding these methods to the public API.
  */
 public class JavaPluginHelper {
+    public static final String DEFAULT_TEST_SUITE_NAME = "test";
 
     private JavaPluginHelper() {
         // Private to prevent instantiation.
@@ -49,4 +54,24 @@ public class JavaPluginHelper {
         return (JvmSoftwareComponentInternal) component;
     }
 
+    /**
+     * Gets the default test suite. This method assumes the Java plugin is applied.
+     *
+     * @throws GradleException If the default test suite does not exist.
+     */
+    public static JvmTestSuite getDefaultTestSuite(Project project) {
+        String message = "The Java plugin must be applied to access the default test suite.";
+
+        TestingExtension testing = project.getExtensions().findByType(TestingExtension.class);
+        if (testing == null) {
+            throw new GradleException(message);
+        }
+
+        TestSuite defaultTestSuite = testing.getSuites().findByName(DEFAULT_TEST_SUITE_NAME);
+        if (!(defaultTestSuite instanceof JvmTestSuite)) {
+            throw new GradleException(message);
+        }
+
+        return (JvmTestSuite) defaultTestSuite;
+    }
 }

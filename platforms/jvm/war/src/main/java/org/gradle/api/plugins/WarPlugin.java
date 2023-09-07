@@ -34,7 +34,6 @@ import org.gradle.api.model.ObjectFactory;
 import org.gradle.api.plugins.internal.JavaPluginHelper;
 import org.gradle.api.plugins.jvm.JvmTestSuite;
 import org.gradle.api.plugins.jvm.internal.JvmFeatureInternal;
-import org.gradle.api.plugins.jvm.internal.JvmTestSuitePluginHelper;
 import org.gradle.api.tasks.TaskProvider;
 import org.gradle.api.tasks.bundling.War;
 import org.gradle.internal.deprecation.DeprecationLogger;
@@ -137,7 +136,7 @@ public abstract class WarPlugin implements Plugin<Project> {
         mainFeature.getRuntimeClasspathConfiguration().extendsFrom(providedRuntimeConfiguration);
         mainFeature.getRuntimeElementsConfiguration().extendsFrom(providedRuntimeConfiguration);
 
-        JvmTestSuite defaultTestSuite = JvmTestSuitePluginHelper.getDefaultTestSuite(project);
+        JvmTestSuite defaultTestSuite = JavaPluginHelper.getDefaultTestSuite(project);
         configurationContainer.getByName(defaultTestSuite.getSources().getRuntimeClasspathConfigurationName()).extendsFrom(providedRuntimeConfiguration);
     }
 

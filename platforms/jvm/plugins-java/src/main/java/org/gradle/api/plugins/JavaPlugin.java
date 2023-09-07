@@ -29,8 +29,8 @@ import org.gradle.api.internal.plugins.DslObject;
 import org.gradle.api.internal.project.ProjectInternal;
 import org.gradle.api.internal.tasks.JvmConstants;
 import org.gradle.api.model.ObjectFactory;
+import org.gradle.api.plugins.internal.JavaPluginHelper;
 import org.gradle.api.plugins.jvm.JvmTestSuite;
-import org.gradle.api.plugins.jvm.internal.JvmTestSuitePluginHelper;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.TaskCollection;
 import org.gradle.api.tasks.TaskContainer;
@@ -289,7 +289,7 @@ public abstract class JavaPlugin implements Plugin<Project> {
 
     private static void configureBuiltInTest(Project project, JvmSoftwareComponentInternal component) {
         TestingExtension testing = project.getExtensions().getByType(TestingExtension.class);
-        final NamedDomainObjectProvider<JvmTestSuite> testSuite = testing.getSuites().register(JvmTestSuitePluginHelper.DEFAULT_TEST_SUITE_NAME, JvmTestSuite.class, suite -> {
+        final NamedDomainObjectProvider<JvmTestSuite> testSuite = testing.getSuites().register(JavaPluginHelper.DEFAULT_TEST_SUITE_NAME, JvmTestSuite.class, suite -> {
             final SourceSet testSourceSet = suite.getSources();
             ConfigurationContainer configurations = project.getConfigurations();
 

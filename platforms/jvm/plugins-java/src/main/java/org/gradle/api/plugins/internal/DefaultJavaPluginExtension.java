@@ -34,7 +34,6 @@ import org.gradle.api.plugins.FeatureSpec;
 import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.plugins.JavaPluginExtension;
 import org.gradle.api.plugins.JavaResolutionConsistency;
-import org.gradle.api.plugins.jvm.internal.JvmTestSuitePluginHelper;
 import org.gradle.api.plugins.jvm.JvmTestSuite;
 import org.gradle.api.plugins.jvm.internal.JvmFeatureInternal;
 import org.gradle.api.reporting.ReportingExtension;
@@ -296,7 +295,7 @@ public class DefaultJavaPluginExtension implements JavaPluginExtension {
 
             if (project.getPlugins().hasPlugin(JavaPlugin.class)) {
                 JvmFeatureInternal mainFeature = JavaPluginHelper.getJavaComponent(project).getMainFeature();
-                JvmTestSuite defaultTestSuite = JvmTestSuitePluginHelper.getDefaultTestSuite(project);
+                JvmTestSuite defaultTestSuite = JavaPluginHelper.getDefaultTestSuite(project);
 
                 mainCompileClasspath = mainFeature.getCompileClasspathConfiguration();
                 mainRuntimeClasspath = mainFeature.getRuntimeClasspathConfiguration();
